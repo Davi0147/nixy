@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nixy</title>
+<!-- antes de pintar: só com JS os blocos começam escondidos para a rolagem revelar -->
+<script>document.documentElement.classList.add("js");</script>
+<meta name="description" content="Nixy, a diabinha do servidor: largou o RH do inferno, tem humor próprio, julga todo mundo e lembra de você.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilo.css">
+<script type="module" src="js/site.js"></script>
+<script type="module" src="js/ao-vivo.js"></script>
+</head>
+<body>
+<div class="dica" aria-hidden="true">role pra baixo ↓</div>
+
+<header class="topo"><div><b>NIXY</b><a class="botao" href="https://discord.gg/GsMtQsJApn" target="_blank" rel="noopener">Entrar no servidor</a></div></header>
+
+<main>
+  <!-- capa: conteúdo preso enquanto a rolagem dá zoom e revela a entrevista -->
+  <section class="capa">
+    <div class="pino">
+      <div class="luz"></div>
+      <div class="edicao">EDIÇÃO Nº 666 · <span data-mes>NOVEMBRO</span></div>
+      <h1 class="titulo masthead" aria-label="Nixy"><span>NI</span><span>XY</span></h1>
+      <div class="linhas esq">
+        <div><span>exclusivo</span><b>“O RH do inferno era pior que aqui”</b></div>
+        <div><span>tendência</span><b>Chifres são o novo preto</b></div>
+      </div>
+      <picture>
+        <source srcset="img/capa.webp" type="image/webp">
+        <img class="foto" src="img/capa.png" alt="Nixy, a diabinha, de chifres" fetchpriority="high">
+      </picture>
+      <div class="linhas dir">
+        <div class="chamada"><span data-vivo="chamada-etiqueta">plantão</span><b data-vivo="chamada-frase">Dormindo. Não insista.</b></div>
+        <div><span>teste</span><b>Ela te odeia? Use /perfil</b></div>
+      </div>
+      <div class="selo-sombra"><div class="selo"><div><b>666</b>dias<br>sem trabalhar</div></div></div>
+      <div class="citacao"><div><q>Todo mundo tem um demônio interior. O meu só é mais bonito.</q><small>— Nixy, em entrevista exclusiva</small></div></div>
+    </div>
+  </section>
+
+  <!-- agora: preenchido ao vivo pelo status do bot; até lá, dormindo -->
+  <section class="agora">
+    <div class="cab"><h2>Agora</h2><span class="ao-vivo" data-vivo="indicador">dormindo</span></div>
+    <div class="cols">
+      <div class="col">
+        <div class="vivo">
+          <small data-vivo="rotulo">dormindo</small>
+          <div class="grande" data-vivo="atividade"><i data-ic="lua"></i> Dormindo</div>
+          <p data-vivo="humor">não perturbe</p>
+        </div>
+      </div>
+      <div class="col"><small>medidores</small>
+        <div class="m" data-medidor="energia"><span><i data-ic="raio"></i> energia</span><em>50</em><i><b data-v="50"></b></i></div>
+        <div class="m" data-medidor="estresse"><span><i data-ic="estresse"></i> estresse</span><em>50</em><i><b data-v="50"></b></i></div>
+        <div class="m" data-medidor="felicidade"><span><i data-ic="diabinha"></i> felicidade</span><em>50</em><i><b data-v="50"></b></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ensaio: coverflow que anda de lado conforme a rolagem -->
+  <section class="carrossel">
+    <div class="pino">
+      <div class="cab"><h2>Ensaio</h2><span class="contador">01 / 08</span></div>
+      <div class="trilho">
+        <div class="post"><div class="img"><img src="img/feed/f1.jpg" style="object-position:55% 40%" alt="" loading="lazy"></div><p><b>nixy</b> não, eu não tô de bom humor</p></div>
+        <div class="post"><div class="img"><img src="img/feed/f2.jpg" style="object-position:50% 30%" alt="" loading="lazy"></div><p><b>nixy</b> shopping lotado. odeio todos vocês</p></div>
+        <div class="post"><div class="img"><img src="img/feed/f3.jpg" style="object-position:48% 50%" alt="" loading="lazy"></div><p><b>nixy</b> férias do inferno</p></div>
+        <div class="post"><div class="img"><img src="img/feed/f4.jpg" style="object-position:68% 50%" alt="" loading="lazy"></div><p><b>nixy</b> domingo. ninguém me chama.</p></div>
+        <div class="post"><div class="img"><img src="img/feed/f5.jpg" style="object-position:36% 50%" alt="" loading="lazy"></div><p><b>nixy</b> joão pessoa de noite</p></div>
+        <div class="post"><div class="img"><img src="img/feed/f6.jpg" style="object-position:50% 50%" alt="" loading="lazy"></div><p><b>nixy</b> guaraná &gt; água benta</p></div>
+        <div class="post"><div class="img"><img src="img/feed/f7.jpg" style="object-position:52% 50%" alt="" loading="lazy"></div><p><b>nixy</b> frio? eu vim do inferno, isso é spa</p></div>
+        <div class="post"><div class="img"><img src="img/feed/f8.jpg" style="object-position:50% 50%" alt="" loading="lazy"></div><p><b>nixy</b> bom dia pra quem?</p></div>
+      </div>
+      <div class="barra-prog"><i></i></div>
+    </div>
+  </section>
+
+  <!-- especial: o jogo dela -->
+  <section class="jogo">
+    <div class="quadro">
+      <img class="on" src="img/jogo/jogo1.jpg" alt="Nixy no RH do inferno" data-leg="O RH DO INFERNO" loading="lazy">
+      <img src="img/jogo/jogo2.jpg" alt="Nixy desesperada com a papelada" data-leg="MAIS UM DIA DE TRABALHO" loading="lazy">
+      <img src="img/jogo/jogo3.jpg" alt="Nixy diante da Succubus Imperial" data-leg="O ACERTO DE CONTAS" loading="lazy">
+      <img src="img/jogo/jogo4.jpg" alt="Escritório do inferno" data-leg="A PAPELADA NÃO ACABA" loading="lazy">
+      <span class="legenda">HELL SURVIVOR · O RH DO INFERNO</span>
+      <div class="pontos" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+    </div>
+    <div class="texto">
+      <small>especial · games</small>
+      <h2>Hell Survivor</h2>
+      <h3>Ela largou o RH do inferno. Agora é a protagonista.</h3>
+      <p>Um roguelite de ação em pixel art: a Nixy enfrenta hordas de demônios nas catacumbas do inferno, sobe de nível, escolhe cartas de poder e encara seus ex-chefes demoníacos. Roda direto no navegador.</p>
+      <ul>
+        <li><b>01</b>Hordas infinitas de inimigos mortais</li>
+        <li><b>02</b>Armas únicas e evoluções</li>
+        <li><b>03</b>História única e envolvente</li>
+      </ul>
+      <a class="jogar" href="https://davi0147.github.io/Hell-Survivor/" target="_blank" rel="noopener">Jogar agora <span class="seta">→</span></a>
+    </div>
+  </section>
+
+  <!-- comandos: só os públicos -->
+  <section class="sumario">
+    <h2>Comandos</h2>
+    <ol>
+      <li class="item"><span class="n">01</span><code>/perfil</code><span class="desc">o que ela acha de você. prepare-se.</span></li>
+      <li class="item"><span class="n">02</span><code>/relacao</code><span class="desc">amizade, rivalidade ou ódio puro</span></li>
+      <li class="item"><span class="n">03</span><code>/humor</code><span class="desc">como ela está agora, e se vai piorar</span></li>
+      <li class="item"><span class="n">04</span><code>/ranking</code><span class="desc">quem ela tolera e quem ela não suporta</span></li>
+      <li class="item"><span class="n">05</span><code>/memoria</code><span class="desc">o que ela lembra de você. infelizmente.</span></li>
+      <li class="item"><span class="n">06</span><code>/apelido</code><span class="desc">como você está salvo na lista dela</span></li>
+      <li class="item"><span class="n">07</span><code>/jogodomes</code><span class="desc">o jogo que ela não larga este mês</span></li>
+      <li class="item"><span class="n">08</span><code>/esquecer</code><span class="desc">ela apaga tudo sobre você. e finge que sente falta.</span></li>
+    </ol>
+  </section>
+
+  <section class="fim"><div><a class="cta" href="https://discord.gg/GsMtQsJApn" target="_blank" rel="noopener">Entra no servidor <span class="seta">→</span></a><p>próxima edição: você.</p></div></section>
+</main>
+</body>
+</html>

@@ -1,0 +1,181 @@
+/* Nixy · versão Vogue. Paleta e efeitos portados da referência aprovada (#r1 de revista.html). */
+:root { --fundo: #120a1a; --tx: #f3e9ff; --ap: #a99bb8; --linha: #ffffff1f; --acento: #b44cff; --titulo: #e3c8ff; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+/* clip (e não hidden) para não virar contêiner de rolagem e não quebrar o position: sticky */
+html, body { overflow-x: clip; }
+body { background: var(--fundo); color: var(--tx); font-family: Inter, system-ui, sans-serif; }
+img { display: block; }
+a { color: inherit; text-decoration: none; }
+section { position: relative; }
+/* svh: no celular a barra do navegador some/volta e o 100vh faria a capa pular; vh fica de reserva */
+.pino { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+/* corpo óptico pequeno: na Bodoni grande os traços finos somem */
+.masthead { font-family: "Bodoni Moda", serif; font-weight: 900; font-variation-settings: "opsz" 6; color: var(--titulo); letter-spacing: -.02em; }
+
+/* dica fixa no rodapé: some no fim da página e volta ao subir */
+.dica { position: fixed; z-index: 60; bottom: 16px; left: 50%; transform: translateX(-50%); font: 500 12px Inter, sans-serif; color: #fff9;
+        background: #0008; padding: 6px 12px; border-radius: 999px; pointer-events: none; transition: opacity .35s, transform .35s; }
+.dica.sumiu { opacity: 0; transform: translateX(-50%) translateY(10px); }
+
+/* topo que aparece depois da capa */
+.topo { position: sticky; top: 0; height: 0; z-index: 40; }
+.topo > div { height: 68px; display: flex; align-items: center; justify-content: space-between; padding: 0 28px;
+              background: linear-gradient(var(--fundo) 30%, transparent); opacity: 0; pointer-events: none; transition: opacity .3s; }
+.topo.ver > div { opacity: 1; pointer-events: auto; }
+.topo b { font: 900 26px "Bodoni Moda", serif; font-variation-settings: "opsz" 6; letter-spacing: .04em; }
+
+/* botão pequeno do topo: um brilho atravessa ao passar o mouse */
+.botao { position: relative; overflow: hidden; display: inline-block; font: 600 13px Inter, sans-serif; color: #fff; background: var(--acento);
+         padding: 10px 18px; border-radius: 0; transition: box-shadow .35s, transform .35s; }
+.botao::after { content: ""; position: absolute; top: 0; bottom: 0; left: -60%; width: 40%; transform: skewX(-20deg);
+                background: linear-gradient(90deg, transparent, #ffffff88, transparent); transition: left .6s; }
+.botao:hover { box-shadow: 0 0 24px #b44cffaa, 0 0 60px #b44cff55; transform: translateY(-1px); }
+.botao:hover::after { left: 130%; }
+
+/* ---------- capa ---------- */
+.capa { height: 240vh; }
+.luz { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 100%, #5b1fa3 0%, #2a0f45 45%, #120a1a 80%); }
+.edicao { position: absolute; left: 5vw; top: 4vh; font: 500 11px "JetBrains Mono", monospace; letter-spacing: .1em; color: var(--ap); }
+.titulo { position: absolute; left: 0; right: 0; top: 9vh; font-size: min(23vw, 34vh); line-height: 1; display: flex;
+          justify-content: space-between; padding: 0 7vw; transform-origin: top center; text-shadow: 0 0 50px #b44cff66; }
+.foto { position: absolute; left: 50%; bottom: 0; height: 88vh; transform: translateX(-50%); transform-origin: 50% 20%; }
+.linhas { position: absolute; top: 44vh; width: 22vw; display: grid; gap: 26px; }
+.linhas.esq { left: 5vw; }
+.linhas.dir { right: 5vw; text-align: right; }
+/* o texto ao vivo pode trazer nomes longos sem espaço (jogo, vídeo, música) */
+.linhas b { display: block; font: italic 400 clamp(22px, 2.4vw, 34px)/1 "Bodoni Moda", serif; color: #fff; overflow-wrap: anywhere; }
+.linhas span { font: 500 11px Inter, sans-serif; letter-spacing: .2em; text-transform: uppercase; color: var(--titulo); }
+.chamada { transition: opacity .35s, transform .35s; }
+.chamada.troca-estado { opacity: 0; transform: translateY(8px); }
+/* selo de adesivo: estrela de pontas (clip-path montado no JS) com sombra seguindo o recorte */
+.selo-sombra { position: absolute; left: 7vw; bottom: 8vh; filter: drop-shadow(0 6px 14px #0008) drop-shadow(0 0 24px #b44cff66); }
+.selo { width: 136px; height: 136px; background: var(--acento); display: grid; place-items: center; text-align: center;
+        font: 700 12px/1.2 Inter, sans-serif; clip-path: var(--estrela); transform: rotate(12deg); }
+.selo b { display: block; font: 900 32px "Bodoni Moda", serif; font-variation-settings: "opsz" 6; }
+.citacao { position: absolute; inset: 0; display: grid; place-items: center; padding: 0 10vw; text-align: center; opacity: 0; background: #120a1acc; }
+.citacao q { font: italic 400 clamp(34px, 5.4vw, 80px)/1.05 "Bodoni Moda", serif; quotes: "“" "”"; display: block; }
+.citacao small { display: block; margin-top: 26px; font: 500 12px Inter, sans-serif; letter-spacing: .25em; text-transform: uppercase; color: var(--acento); }
+
+/* ---------- agora (ao vivo) ---------- */
+.agora { padding: 16vh 6vw 8vh; }
+.agora .cab { display: flex; align-items: baseline; justify-content: space-between; border-bottom: 1px solid var(--tx); padding-bottom: 14px; }
+.agora h2 { font: italic 400 clamp(44px, 6vw, 84px)/1 "Bodoni Moda", serif; }
+.ao-vivo { font: 500 11px Inter, sans-serif; letter-spacing: .22em; text-transform: uppercase; color: var(--ap); display: flex; gap: 8px; align-items: center; }
+.ao-vivo::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--acento); animation: pulsa 1.6s infinite; }
+@keyframes pulsa { 50% { opacity: .25; } }
+.cols { display: grid; grid-template-columns: 1fr 1.3fr; }
+.col { min-width: 0; padding: 30px 30px 10px; border-right: 1px solid var(--linha); }
+/* só esconde quem o JS vai revelar: sem JS (ou com ele quebrado) o conteúdo aparece */
+html.js .col { opacity: 0; transform: translateY(30px); }
+.col:first-child { padding-left: 0; }
+.col:last-child { border-right: 0; }
+.col small { font: 500 11px Inter, sans-serif; letter-spacing: .22em; text-transform: uppercase; color: var(--acento); }
+.col .grande { font: 400 clamp(36px, 4vw, 56px)/1 "Bodoni Moda", serif; margin: 18px 0 10px; overflow-wrap: anywhere; }
+.col p { color: var(--ap); font-size: 15px; }
+.ic { width: 1em; height: 1em; vertical-align: -.14em; fill: none; stroke: currentColor; stroke-width: 1.5;
+      stroke-linecap: round; stroke-linejoin: round; }
+.ic .p { fill: currentColor; stroke: none; }
+.grande .ic { color: var(--acento); width: .78em; height: .78em; stroke-width: 1.3; margin-right: .1em; }
+.m span .ic { color: var(--acento); margin-right: 4px; }
+.vivo { transition: opacity .35s, transform .35s; }
+.vivo.troca-estado { opacity: 0; transform: translateY(8px); }
+.m { display: grid; grid-template-columns: 1fr auto; gap: 6px 10px; margin-top: 18px; font-size: 14px; color: var(--ap); }
+.m em { font: italic 400 24px/1 "Bodoni Moda", serif; color: var(--tx); }
+.m i { grid-column: 1 / -1; height: 2px; background: var(--linha); }
+.m i b { display: block; height: 100%; width: 0; background: var(--acento); transition: width .6s cubic-bezier(.2,.8,.2,1); }
+
+/* ---------- ensaio: carrossel preso, rola pra baixo e anda de lado ---------- */
+.carrossel { height: 420vh; }
+.carrossel .pino { display: flex; flex-direction: column; justify-content: center; }
+.carrossel .cab { display: flex; justify-content: space-between; align-items: end; padding: 0 6vw; margin-bottom: 4vh; }
+.carrossel h2 { font: italic 400 clamp(44px, 7vw, 96px)/.9 "Bodoni Moda", serif; }
+.contador { font: 500 13px "JetBrains Mono", monospace; color: var(--ap); }
+.trilho { --w: min(330px, 68vw); display: flex; gap: 28px; padding-left: calc(50% - var(--w) / 2); will-change: transform; }
+.post { flex: 0 0 var(--w); will-change: transform; }
+.post .img { aspect-ratio: 4/5; overflow: hidden; background: #1c1226; }
+.post img { width: 100%; height: 100%; object-fit: cover; }
+.post p { margin-top: 14px; font-size: 14px; color: var(--ap); }
+.post p b { color: var(--tx); font-weight: 600; }
+.barra-prog { position: absolute; left: 6vw; right: 6vw; bottom: 7vh; height: 1px; background: var(--linha); }
+.barra-prog i { display: block; height: 100%; width: 0; background: var(--acento); }
+
+/* ---------- especial: o jogo dela ---------- */
+.jogo { padding: 14vh 6vw; display: grid; grid-template-columns: 1.35fr 1fr; gap: 5vw; align-items: center; }
+.jogo > * { min-width: 0; }
+.jogo .quadro { position: relative; aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--linha); }
+.jogo .quadro img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated;
+                    transform-origin: 55% 40%; opacity: 0; transition: opacity 1.1s ease; }
+/* a arte da vez aparece por cima e vai se aproximando devagar */
+.jogo .quadro img.on { opacity: 1; animation: aproxima 6s linear forwards; }
+@keyframes aproxima { from { transform: scale(1); } to { transform: scale(1.08); } }
+.jogo .pontos { position: absolute; right: 14px; bottom: 14px; display: flex; gap: 6px; z-index: 2; }
+.jogo .pontos i { width: 22px; height: 2px; background: #ffffff55; overflow: hidden; }
+.jogo .pontos i.on::after { content: ""; display: block; height: 100%; background: #fff; animation: enche 4.5s linear forwards; }
+@keyframes enche { from { width: 0; } to { width: 100%; } }
+.jogo .legenda { position: absolute; z-index: 2; left: 14px; bottom: 12px; font: 500 11px "JetBrains Mono", monospace; letter-spacing: .1em; color: #fffc;
+                 background: #0009; padding: 5px 9px; }
+.jogo small { font: 500 11px Inter, sans-serif; letter-spacing: .22em; text-transform: uppercase; color: var(--acento); }
+.jogo h2 { font: 900 clamp(44px, 5.6vw, 84px)/.92 "Bodoni Moda", serif; font-variation-settings: "opsz" 6; margin: 14px 0 6px; }
+.jogo h3 { font: italic 400 clamp(22px, 2.2vw, 30px)/1.1 "Bodoni Moda", serif; color: var(--titulo); margin-bottom: 18px; }
+.jogo p { color: var(--ap); line-height: 1.7; }
+.jogo ul { list-style: none; margin: 22px 0 30px; border-top: 1px solid var(--linha); }
+.jogo li { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--linha); font-size: 14px; }
+.jogo li b { font: 500 12px "JetBrains Mono", monospace; color: var(--acento); min-width: 22px; }
+html.js .jogo .texto > * { opacity: 0; transform: translateY(24px); }
+.jogar { display: inline-flex; gap: 14px; align-items: center; font: 600 14px Inter, sans-serif; letter-spacing: .2em; text-transform: uppercase;
+         padding: 18px 30px; border: 1px solid var(--acento);
+         background: linear-gradient(var(--acento), var(--acento)) left / 0 100% no-repeat;
+         transition: background-size .5s cubic-bezier(.7,0,.2,1), box-shadow .5s; }
+.jogar:hover { background-size: 100% 100%; box-shadow: 0 0 40px #b44cff99, 0 0 110px #b44cff44; }
+.jogar:hover .seta { transform: translateX(10px); }
+
+/* ---------- comandos ---------- */
+.sumario { padding: 16vh 6vw 10vh; overflow-x: clip; }
+.sumario h2 { font: 900 clamp(44px, 7vw, 96px) "Bodoni Moda", serif; font-variation-settings: "opsz" 6; margin-bottom: 6vh; }
+.sumario ol { list-style: none; }
+.item { display: grid; grid-template-columns: 90px 1fr auto; align-items: baseline; gap: 20px; padding: 2vh 0; border-bottom: 1px solid var(--linha);
+        transform-origin: left center; }
+.item .n { font: 500 13px "JetBrains Mono", monospace; color: var(--acento); }
+.item code { font: 400 clamp(30px, 4.6vw, 64px) "Bodoni Moda", serif; }
+.item .desc { color: var(--ap); font-size: 15px; text-align: right; }
+
+/* ---------- fim ---------- */
+.fim { height: 100vh; display: grid; place-items: center; text-align: center; padding: 0 16px; }
+.fim p { margin-top: 26px; color: var(--ap); }
+.seta { display: inline-block; transition: transform .45s cubic-bezier(.2,.8,.2,1); }
+/* botão final: o roxo sobe a partir do sublinhado e acende */
+.cta { display: inline-block; font: italic 400 clamp(40px, 7vw, 104px) "Bodoni Moda", serif; padding: 10px 34px 16px;
+       border-bottom: 3px solid var(--acento); border-radius: 0;
+       background: linear-gradient(var(--acento), var(--acento)) bottom / 100% 0 no-repeat;
+       transition: background-size .5s cubic-bezier(.7,0,.2,1), box-shadow .5s, text-shadow .5s; }
+.cta:hover { background-size: 100% 100%; box-shadow: 0 0 50px #b44cff99, 0 0 140px #b44cff55; text-shadow: 0 0 20px #fff8; }
+.cta:hover .seta { transform: translateX(16px); }
+
+/* ---------- celular: uma coluna, sem rolagem lateral ---------- */
+@media (max-width: 760px) {
+  .linhas, .selo-sombra { display: none !important; }
+  .topo > div { padding: 0 16px; }
+  .cols { grid-template-columns: 1fr; }
+  .col { border-right: 0; padding-left: 0; padding-right: 0; border-bottom: 1px solid var(--linha); }
+  .jogo { grid-template-columns: 1fr; padding-left: 16px; padding-right: 16px; }
+  .agora, .sumario { padding-left: 16px; padding-right: 16px; }
+  .carrossel .cab { padding: 0 16px; }
+  .item { grid-template-columns: 40px 1fr; }
+  .item .desc { grid-column: 2; text-align: left; }
+  .cta { font-size: clamp(26px, 8.4vw, 40px); padding: 10px 14px 14px; }
+}
+
+/* ---------- movimento reduzido: sem zoom, rotação nem coverflow; nada troca sozinho ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .ao-vivo::before { animation: none; }
+  /* o ensaio vira uma lista que rola de lado */
+  .carrossel { height: auto; padding: 12vh 0; }
+  .carrossel .pino { position: static; height: auto; overflow: visible; }
+  .trilho { overflow-x: auto; padding: 0 6vw 12px; scroll-snap-type: x mandatory; will-change: auto; }
+  .post { scroll-snap-align: center; will-change: auto; }
+  .barra-prog, .contador { display: none; }
+  .jogo .quadro img.on { animation: none; }
+  .jogo .pontos { display: none; }
+  .seta, .botao, .botao::after, .dica { transition: none; }
+}
