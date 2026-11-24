@@ -178,6 +178,35 @@ if ("IntersectionObserver" in window) {
 }
 document.addEventListener("visibilitychange", ajustarArtes);
 
+// comandos: a explicação cresce ao abrir e encolhe ao fechar; abrir um fecha o que estava aberto.
+// O name="comandos" do HTML já faz isso sem JS, mas fecha seco: aqui ele sai pra dar tempo da animação.
+const detalhes = $(".sumario details");
+const alvo = new Map();      // pra onde cada um está indo (aberto/fechado), mesmo no meio da animação
+const animacoes = new Map();
+function animarComando(det, abrir) {
+  const exp = det.querySelector(".exp");
+  const antes = det.open ? exp.getBoundingClientRect().height : 0;  // de onde parou, se já estava animando
+  animacoes.get(det)?.cancel();
+  alvo.set(det, abrir);
+  if (reduzido.matches || !exp.animate) { det.open = abrir; pedir(); return; }
+  det.open = true;
+  const cheia = exp.getBoundingClientRect().height;
+  const a = exp.animate(
+    [{ height: `${antes}px`, opacity: abrir ? 0 : 1 }, { height: `${abrir ? cheia : 0}px`, opacity: abrir ? 1 : 0 }],
+    { duration: 420, easing: "cubic-bezier(.2,.8,.2,1)" });
+  animacoes.set(det, a);
+  a.onfinish = () => { animacoes.delete(det); if (!abrir) det.open = false; pedir(); };
+}
+detalhes.forEach(det => {
+  det.removeAttribute("name");
+  det.querySelector("summary").addEventListener("click", ev => {
+    ev.preventDefault();
+    const abrir = !(alvo.get(det) ?? det.open);
+    if (abrir) detalhes.forEach(o => { if (o !== det && (alvo.get(o) ?? o.open)) animarComando(o, false); });
+    animarComando(det, abrir);
+  });
+});
+
 // Safari antigo só tem addListener em MediaQueryList
 function aoMudar(mq, fn) {
   if (mq.addEventListener) mq.addEventListener("change", fn); else mq.addListener(fn);
