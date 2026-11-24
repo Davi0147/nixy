@@ -186,12 +186,14 @@ const alvo = new Map();      // pra onde cada um está indo (aberto/fechado), me
 const animacoes = new Map();
 function animarComando(det, abrir) {
   const exp = det.querySelector(".exp");
-  const antes = det.open ? exp.getBoundingClientRect().height : 0;  // de onde parou, se já estava animando
+  // offsetHeight (e não getBoundingClientRect): o item tem o zoom da rolagem, e a altura na tela vem escalada.
+  // Medida escalada faz a animação parar antes da altura real e o resto da lista dar um tranco no fim.
+  const antes = det.open ? exp.offsetHeight : 0;  // de onde parou, se já estava animando
   animacoes.get(det)?.cancel();
   alvo.set(det, abrir);
   if (reduzido.matches || !exp.animate) { det.open = abrir; pedir(); return; }
   det.open = true;
-  const cheia = exp.getBoundingClientRect().height;
+  const cheia = exp.offsetHeight;
   const a = exp.animate(
     [{ height: `${antes}px`, opacity: abrir ? 0 : 1 }, { height: `${abrir ? cheia : 0}px`, opacity: abrir ? 1 : 0 }],
     { duration: 420, easing: "cubic-bezier(.2,.8,.2,1)" });
