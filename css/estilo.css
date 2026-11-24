@@ -154,7 +154,8 @@ html.js .jogo .texto > * { opacity: 0; transform: translateY(24px); }
 .sumario .intro { color: var(--ap); margin: -3vh 0 4vh; font-size: 15px; }
 .sumario .grupo { font: 500 12px Inter, sans-serif; letter-spacing: .25em; text-transform: uppercase; color: var(--acento);
                   margin: 8vh 0 1vh; padding-bottom: 12px; border-bottom: 1px solid var(--tx); }
-.item { border-bottom: 1px solid var(--linha); transform-origin: left center; }
+/* zoom a partir do topo: abrir a explicação aumenta a altura, e com origem no meio o título andaria */
+.item { border-bottom: 1px solid var(--linha); transform-origin: left top; }
 /* a linha inteira é o botão de abrir */
 /* folga na direita: o item do meio da tela ganha zoom de 8% e a descrição não pode sair da página */
 .item summary { display: grid; grid-template-columns: 90px 1fr auto; align-items: baseline; gap: 20px; padding: 2vh 8% 2vh 0;

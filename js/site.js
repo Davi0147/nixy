@@ -139,7 +139,8 @@ function quadroJogoEspecial() {
 function quadroComandos() {
   const [maior, menor] = celular.matches ? [1, .88] : [1.08, .82];
   itens.forEach(el => {
-    const r = el.getBoundingClientRect();
+    // mede só a linha do título: abrir a explicação não pode mudar o zoom do comando
+    const r = (el.querySelector("summary") || el).getBoundingClientRect();
     const d = lim(Math.abs(r.top + r.height / 2 - innerHeight / 2) / (innerHeight * .5));
     el.style.transform = reduzido.matches ? "" : `scale(${mix(maior, menor, d)})`;
     el.style.opacity = mix(1, .3, d);
@@ -196,6 +197,18 @@ function animarComando(det, abrir) {
     { duration: 420, easing: "cubic-bezier(.2,.8,.2,1)" });
   animacoes.set(det, a);
   a.onfinish = () => { animacoes.delete(det); if (!abrir) det.open = false; pedir(); };
+  acompanhar();
+}
+// enquanto uma explicação cresce ou encolhe, os comandos de baixo andam: o zoom deles segue quadro a quadro
+let acompanhando = false;
+function acompanhar() {
+  if (acompanhando) return;
+  acompanhando = true;
+  const passo = () => {
+    quadroComandos();
+    if (animacoes.size) requestAnimationFrame(passo); else acompanhando = false;
+  };
+  requestAnimationFrame(passo);
 }
 detalhes.forEach(det => {
   det.removeAttribute("name");
