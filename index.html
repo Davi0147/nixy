@@ -62,6 +62,33 @@
     </div>
   </section>
 
+  <!-- bio: quem é ela, com a foto do escritório do lado -->
+  <section class="bio">
+    <figure class="retrato">
+      <picture>
+        <source srcset="img/bio.webp" type="image/webp">
+        <img src="img/bio.jpg" alt="Nixy no escritório, de chifres e cabelo roxo, segurando uma caneca de café" loading="lazy" width="900" height="1613">
+      </picture>
+      <figcaption>flagra: fingindo que trabalha</figcaption>
+    </figure>
+    <div class="texto">
+      <small>perfil · quem é ela</small>
+      <h2>Nixy</h2>
+      <h3>Ex-RH do inferno. Atual problema do servidor.</h3>
+      <p>Trabalhou milhões de anos no RH do Inferno: batia ponto, fazia avaliação de desempenho de almas e organizava a integração de condenados novos. Um dia fugiu. Foi expulsa por “abandono de posto” e realocada pra ajudar a cuidar deste servidor, o que ela trata como pena alternativa.</p>
+      <p>Soberba, humor negro, fala palavrão quando cabe e nunca admite que gosta de alguém. Ela demonstra com zoeira e apelido. Tem humor próprio, que sobe e desce com o dia, e memória: vai anotando o que você conta, te dá apelido quando já te conhece bem e lembra de tudo depois. Infelizmente.</p>
+      <dl class="ficha-dela">
+        <div><dt>espécie</dt><dd>demônia, de chifres brancos e cauda com ponta de flecha</dd></div>
+        <div><dt>ex-emprego</dt><dd>RH do Inferno, por milhões de anos</dd></div>
+        <div><dt>odeia</dt><dd>ser CLT, segunda-feira, reunião e “vamos alinhar”</dd></div>
+        <div><dt>ouve</dt><dd>de Metallica a Calcinha Preta, sem pedir desculpa</dd></div>
+        <div><dt>passa o dia</dt><dd>vendo vídeo, jogando, ouvindo música e julgando vocês</dd></div>
+        <div><dt>estrela de</dt><dd>Hell Survivor, o jogo dela (e acha que merecia cachê)</dd></div>
+      </dl>
+      <p class="conversa">Pra falar com ela, marque a Nixy no chat ou responda uma mensagem dela. Às vezes ela entra na conversa sozinha, quando o assunto interessa.</p>
+    </div>
+  </section>
+
   <!-- ensaio: coverflow que anda de lado conforme a rolagem -->
   <section class="carrossel">
     <div class="pino">
@@ -107,16 +134,84 @@
   <!-- comandos: só os públicos -->
   <section class="sumario">
     <h2>Comandos</h2>
+    <p class="intro">Toque em um comando pra ver o que ele faz e como usar. O que está entre [colchetes] é opcional.</p>
+
+    <h3 class="grupo">Ela e você</h3>
     <ol>
-      <li class="item"><span class="n">01</span><code>/perfil</code><span class="desc">o que ela acha de você. prepare-se.</span></li>
-      <li class="item"><span class="n">02</span><code>/relacao</code><span class="desc">amizade, rivalidade ou ódio puro</span></li>
-      <li class="item"><span class="n">03</span><code>/humor</code><span class="desc">como ela está agora, e se vai piorar</span></li>
-      <li class="item"><span class="n">04</span><code>/ranking</code><span class="desc">quem ela tolera e quem ela não suporta</span></li>
-      <li class="item"><span class="n">05</span><code>/memoria</code><span class="desc">o que ela lembra de você. infelizmente.</span></li>
-      <li class="item"><span class="n">06</span><code>/apelido</code><span class="desc">como você está salvo na lista dela</span></li>
-      <li class="item"><span class="n">07</span><code>/jogodomes</code><span class="desc">o jogo que ela não larga este mês</span></li>
-      <li class="item"><span class="n">08</span><code>/recomenda</code><span class="desc">um jogo pra jogar com a galera. ela escolhe, você obedece.</span></li>
-      <li class="item"><span class="n">09</span><code>/esquecer</code><span class="desc">ela apaga tudo sobre você. e finge que sente falta.</span></li>
+      <li class="item"><details><summary><span class="n">01</span><code>/perfil</code><span class="desc">o que ela acha de você. prepare-se.</span></summary>
+        <div class="exp"><p>Mostra o apelido que ela te deu, o nível de amizade e o jeito que ela te enxerga. Dá pra ver o de outra pessoa também.</p>
+        <p class="uso"><b>como usar</b> <kbd>/perfil</kbd> ou <kbd>/perfil membro:@alguém</kbd></p></div></details></li>
+      <li class="item"><details><summary><span class="n">02</span><code>/relacao</code><span class="desc">amizade, rivalidade ou ódio puro</span></summary>
+        <div class="exp"><p>A barra da relação de vocês: se subiu ou caiu na semana e quanto falta pro próximo nível. Conversar bem com ela sobe; ser insuportável desce.</p>
+        <p class="uso"><b>como usar</b> <kbd>/relacao</kbd> ou <kbd>/relacao membro:@alguém</kbd></p></div></details></li>
+      <li class="item"><details><summary><span class="n">03</span><code>/ficha</code><span class="desc">tudo que ela já anotou sobre você</span></summary>
+        <div class="exp"><p>Ela preenche enquanto conversa: jogos, mains, ranks, gostos, jeito, bordões. Se algo mudar, ela pergunta antes de trocar. Só você vê. Coisa pessoal (onde mora, namoro) ela só comenta com você, e o que outra pessoa contou de você aparece marcado como boato. Quer que ela esqueça algo? Peça no chat: “nixy, esquece isso aí”.</p>
+        <p class="uso"><b>como usar</b> <kbd>/ficha</kbd> (a resposta só aparece pra você)</p></div></details></li>
+      <li class="item"><details><summary><span class="n">04</span><code>/memoria</code><span class="desc">o que ela lembra de você. infelizmente.</span></summary>
+        <div class="exp"><p>Os momentos que vocês tiveram e as tretas que ela não esqueceu.</p>
+        <p class="uso"><b>como usar</b> <kbd>/memoria</kbd></p></div></details></li>
+      <li class="item"><details><summary><span class="n">05</span><code>/apelido</code><span class="desc">como você está salvo na lista dela</span></summary>
+        <div class="exp"><p>O apelido que ela te deu e o motivo. Ela só dá apelido depois de te conhecer bem, e troca se o motivo deixar de valer.</p>
+        <p class="uso"><b>como usar</b> <kbd>/apelido</kbd></p></div></details></li>
+      <li class="item"><details><summary><span class="n">06</span><code>/humor</code><span class="desc">como ela está agora, e se vai piorar</span></summary>
+        <div class="exp"><p>Como ela está se sentindo, o que está fazendo e se o humor está subindo ou caindo. Bom pra saber se é hora de pedir alguma coisa.</p>
+        <p class="uso"><b>como usar</b> <kbd>/humor</kbd></p></div></details></li>
+      <li class="item"><details><summary><span class="n">07</span><code>/ranking</code><span class="desc">quem ela tolera e quem ela não suporta</span></summary>
+        <div class="exp"><p>Quem ela mais suporta no servidor e o mural da vergonha.</p>
+        <p class="uso"><b>como usar</b> <kbd>/ranking</kbd></p></div></details></li>
+      <li class="item"><details><summary><span class="n">08</span><code>/esquecer</code><span class="desc">ela apaga tudo sobre você. e finge que sente falta.</span></summary>
+        <div class="exp"><p>Apaga o apelido, as anotações e a relação de vocês. Ela pede confirmação antes, porque não tem volta.</p>
+        <p class="uso"><b>como usar</b> <kbd>/esquecer</kbd></p></div></details></li>
+    </ol>
+
+    <h3 class="grupo">Zoeira</h3>
+    <ol>
+      <li class="item"><details><summary><span class="n">09</span><code>/aura</code><span class="desc">quanto de aura você tem hoje</span></summary>
+        <div class="exp"><p>Ela calcula a aura com os motivos: idade da conta, tempo no servidor, nick, foto, se impulsiona, o que ela acha de você e a energia do dia. O número fica fixo no dia. Acima de 8 mil, é mais de 8 mil.</p>
+        <p class="uso"><b>como usar</b> <kbd>/aura</kbd> ou <kbd>/aura pessoa:@alguém</kbd></p></div></details></li>
+      <li class="item"><details><summary><span class="n">10</span><code>/julgar</code><span class="desc">o tribunal da Nixy. sem recurso.</span></summary>
+        <div class="exp"><p>Ela julga alguém com o que sabe da pessoa: acusação, veredito, pena e a palavra final da juíza. Só julga quem ela já conhece; se ainda não conhece o suficiente, ela avisa.</p>
+        <p class="uso"><b>como usar</b> <kbd>/julgar</kbd> ou <kbd>/julgar pessoa:@alguém</kbd></p></div></details></li>
+      <li class="item"><details><summary><span class="n">11</span><code>/destino</code><span class="desc">o horóscopo gamer do dia</span></summary>
+        <div class="exp"><p>Sorte na ranked, jogo do dia, o que evitar e número da sorte. Fica igual o dia todo; amanhã os astros mudam de ideia. Quanto mais ela te conhece, mais certeiro.</p>
+        <p class="uso"><b>como usar</b> <kbd>/destino</kbd> ou <kbd>/destino pessoa:@alguém</kbd></p></div></details></li>
+      <li class="item"><details><summary><span class="n">12</span><code>/ship</code><span class="desc">mede o romance entre duas pessoas</span></summary>
+        <div class="exp"><p>A porcentagem do casal, o comentário dela e o nome do ship. Com uma pessoa só, o casal é você com ela.</p>
+        <p class="uso"><b>como usar</b> <kbd>/ship pessoa1:@alguém</kbd> ou <kbd>/ship pessoa1:@alguém pessoa2:@outro</kbd></p></div></details></li>
+      <li class="item"><details><summary><span class="n">13</span><code>/meme</code><span class="desc">um meme com a foto de alguém</span></summary>
+        <div class="exp"><p>Ela escolhe o modelo (clássico, procurado, R.I.P., funcionário do mês, certificado) e escreve a piada com o que sabe da pessoa.</p>
+        <p class="uso"><b>como usar</b> <kbd>/meme</kbd> ou <kbd>/meme pessoa:@alguém</kbd></p></div></details></li>
+      <li class="item"><details><summary><span class="n">14</span><code>nixy cita</code><span class="desc">vira a frase de alguém em citação de pensador</span></summary>
+        <div class="exp"><p>Pegou alguém falando besteira? Ela transforma a mensagem numa imagem de frase filosófica, com a foto e o nome da pessoa.</p>
+        <p class="uso"><b>como usar</b> responda a mensagem escrevendo <kbd>nixy cita</kbd>, ou clique com o botão direito na mensagem e vá em <kbd>Apps → Citar</kbd></p></div></details></li>
+    </ol>
+
+    <h3 class="grupo">Galera e jogos</h3>
+    <ol>
+      <li class="item"><details><summary><span class="n">15</span><code>/bora</code><span class="desc">chama a galera pra jogar</span></summary>
+        <div class="exp"><p>Ela monta o convite com o jogo e a hora, com botões pra galera confirmar presença, marca quem você pedir e chama todo mundo quando chegar a hora.</p>
+        <p class="uso"><b>como usar</b> <kbd>/bora jogo:Valorant quando:21h</kbd>, e se quiser marcar alguém, <kbd>chamar:@alguém</kbd>. Vale “21h”, “em 30 min”, “amanhã 20h”, “sábado 20h” ou “25/12 19h”.</p></div></details></li>
+      <li class="item"><details><summary><span class="n">16</span><code>/recomenda</code><span class="desc">um jogo pra jogar com a galera. ela escolhe, você obedece.</span></summary>
+        <div class="exp"><p>Ela indica um jogo multiplayer com preço, loja e o porquê. Se alguém acabou de pedir, ela mostra a mesma recomendação.</p>
+        <p class="uso"><b>como usar</b> <kbd>/recomenda</kbd></p></div></details></li>
+      <li class="item"><details><summary><span class="n">17</span><code>/jogodomes</code><span class="desc">o jogo que ela não larga este mês</span></summary>
+        <div class="exp"><p>O jogo em que ela está viciada no mês.</p>
+        <p class="uso"><b>como usar</b> <kbd>/jogodomes</kbd></p></div></details></li>
+      <li class="item"><details><summary><span class="n">18</span><code>/ouvindo</code><span class="desc">a música que ela está ouvindo</span></summary>
+        <div class="exp"><p>O que está tocando pra ela agora (ou a última que tocou), com a opinião dela sobre a música.</p>
+        <p class="uso"><b>como usar</b> <kbd>/ouvindo</kbd></p></div></details></li>
+      <li class="item"><details><summary><span class="n">19</span><code>/lembrete</code><span class="desc">ela te lembra de algo na DM</span></summary>
+        <div class="exp"><p>Na hora marcada ela te manda uma mensagem no privado. Dá pra marcar até 1 ano pra frente.</p>
+        <p class="uso"><b>como usar</b> <kbd>/lembrete quando:amanhã 20h texto:pagar o boleto</kbd></p></div></details></li>
+      <li class="item"><details><summary><span class="n">20</span><code>/lembretes</code><span class="desc">teus lembretes marcados</span></summary>
+        <div class="exp"><p>A lista dos teus lembretes, com opção de apagar.</p>
+        <p class="uso"><b>como usar</b> <kbd>/lembretes</kbd></p></div></details></li>
+      <li class="item"><details><summary><span class="n">21</span><code>/aniversario</code><span class="desc">registra o teu aniversário</span></summary>
+        <div class="exp"><p>No dia ela te dá parabéns no chat e você ganha o cargo de aniversariante. O ano é opcional, só pra ela saber a idade.</p>
+        <p class="uso"><b>como usar</b> <kbd>/aniversario dia:25/12</kbd> ou <kbd>/aniversario dia:25/12/2000</kbd>. Pra tirar, <kbd>/aniversario dia:apagar</kbd></p></div></details></li>
+      <li class="item"><details><summary><span class="n">22</span><code>/aniversarios</code><span class="desc">os próximos aniversários do servidor</span></summary>
+        <div class="exp"><p>Quem faz aniversário em breve, pra ninguém fingir que esqueceu.</p>
+        <p class="uso"><b>como usar</b> <kbd>/aniversarios</kbd></p></div></details></li>
     </ol>
   </section>
 

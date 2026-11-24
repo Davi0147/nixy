@@ -41,6 +41,9 @@ const jogo = document.querySelector(".jogo");
 const quadroJogo = jogo.querySelector(".quadro");
 const textoJogo = $(".texto > *", jogo);
 const cols = $(".agora .col");
+const bio = document.querySelector(".bio");
+const retrato = bio.querySelector(".retrato");
+const textoBio = $(".texto > *", bio);
 const itens = $(".sumario .item");
 
 // quanto o elemento já entrou na tela (0 = abaixo, 1 = bem dentro)
@@ -79,6 +82,18 @@ function quadroAgora() {
     el.style.transform = reduzido.matches ? "none" : `translateY(${mix(30, 0, k)}px)`;
     // a barra enche até o valor atual (data-v), que o ao vivo pode trocar
     $(".m b", el).forEach(b => { b.style.width = (k * Number(b.dataset.v || 0)) + "%"; });
+  });
+}
+
+// bio: a foto sobe primeiro e o texto vem atrás, linha por linha
+function quadroBio() {
+  const k = suave(entrada(retrato));
+  retrato.style.opacity = k;
+  retrato.style.transform = reduzido.matches ? "none" : `translateY(${mix(24, 0, k)}px)`;
+  textoBio.forEach((el, i) => {
+    const t = suave(lim(entrada(el) * 1.3 - i * .05));
+    el.style.opacity = t;
+    el.style.transform = reduzido.matches ? "none" : `translateY(${mix(24, 0, t)}px)`;
   });
 }
 
@@ -139,7 +154,7 @@ function quadroDica() {
 let pedido = false;
 function quadro() {
   pedido = false;
-  quadroCapa(); quadroAgora(); quadroCarrossel(); quadroJogoEspecial(); quadroComandos(); quadroDica();
+  quadroCapa(); quadroAgora(); quadroBio(); quadroCarrossel(); quadroJogoEspecial(); quadroComandos(); quadroDica();
 }
 function pedir() { if (!pedido) { pedido = true; requestAnimationFrame(quadro); } }
 
@@ -173,6 +188,8 @@ export { quadro as redesenhar };
 
 addEventListener("scroll", pedir, { passive: true });
 addEventListener("resize", pedir);
+// abrir/fechar um comando muda a altura da lista: recalcula o zoom dos itens
+document.addEventListener("toggle", pedir, true);
 addEventListener("load", quadro);
 aoMudar(reduzido, () => { ajustarArtes(); quadro(); });
 ajustarArtes();
