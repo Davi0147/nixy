@@ -194,9 +194,12 @@ function animarComando(det, abrir) {
   if (reduzido.matches || !exp.animate) { det.open = abrir; pedir(); return; }
   det.open = true;
   const cheia = exp.offsetHeight;
-  const a = exp.animate(
-    [{ height: `${antes}px`, opacity: abrir ? 0 : 1 }, { height: `${abrir ? cheia : 0}px`, opacity: abrir ? 1 : 0 }],
-    { duration: 420, easing: "cubic-bezier(.2,.8,.2,1)" });
+  // o espaço de baixo (padding) anima junto: com altura 0 ele ainda ocuparia lugar e sumiria de uma vez no fim
+  const folga = getComputedStyle(exp).paddingBottom;
+  const fechado = { height: "0px", paddingBottom: "0px", opacity: 0 };
+  const aberto = { height: `${cheia}px`, paddingBottom: folga, opacity: 1 };
+  const inicio = { height: `${antes}px`, paddingBottom: antes ? folga : "0px", opacity: abrir ? 0 : 1 };
+  const a = exp.animate([inicio, abrir ? aberto : fechado], { duration: 420, easing: "cubic-bezier(.2,.8,.2,1)" });
   animacoes.set(det, a);
   a.onfinish = () => { animacoes.delete(det); if (!abrir) det.open = false; pedir(); };
   acompanhar();
